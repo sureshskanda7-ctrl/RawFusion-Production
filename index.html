@@ -1,52 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RΛWFUSION PRODUCTIONS | Skanda Suresh</title>
   
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: '#f97316'
+          }
+        }
+      }
+    }
+  </script>
+  
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #070709;
-      color: #f4f4f5;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
+
+    .tagline-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.18em;
+    }
+
     .neon-glow {
       box-shadow: 0 0 35px rgba(249, 115, 22, 0.25);
     }
-    .glass-nav {
-      background: rgba(7, 7, 9, 0.85);
-      backdrop-filter: blur(14px);
-    }
-    .card-border {
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
   </style>
 </head>
-<body class="selection:bg-orange-500 selection:text-black">
+<body class="bg-zinc-50 text-zinc-900 dark:bg-[#070709] dark:text-[#f4f4f5] selection:bg-orange-500 selection:text-black">
 
   <!-- Navigation Bar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-zinc-800/80">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#070709]/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800/80 transition-colors">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
-        <img src="logo.png" alt="RawFusion Production Logo" class="h-10 w-auto invert object-contain" />
+        <img src="logo.png" alt="RawFusion Production Logo" class="h-10 w-auto dark:invert object-contain transition-all" />
         <span class="font-extrabold text-lg tracking-wider hidden sm:inline-block">RΛWFUSION</span>
       </a>
 
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
-        <a href="#about" class="hover:text-orange-400 transition">About</a>
-        <a href="#work" class="hover:text-orange-400 transition">Cinematic Reels</a>
-        <a href="#packages" class="hover:text-orange-400 transition">Packages</a>
-        <a href="#contact" class="hover:text-orange-400 transition">Book Shoot</a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-600 dark:text-zinc-300">
+        <a href="#about" class="hover:text-orange-500 transition">About</a>
+        <a href="#work" class="hover:text-orange-500 transition">Portfolio</a>
+        <a href="#packages" class="hover:text-orange-500 transition">Packages</a>
+        <a href="#contact" class="hover:text-orange-500 transition">Book Shoot</a>
       </div>
 
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-4">
+        <!-- Light / Dark Mode Toggle Button -->
+        <button id="themeToggle" onclick="toggleTheme()" class="p-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition" aria-label="Toggle theme">
+          <i id="themeIcon" data-lucide="sun" class="w-4 h-4"></i>
+        </button>
+
         <a href="https://wa.me/918088823626?text=Hi%20Skanda!%20I%20would%20like%20to%20discuss%20a%20project%20with%20RawFusion%20Productions" 
            target="_blank" 
            class="bg-orange-500 hover:bg-orange-600 text-black font-bold text-xs md:text-sm px-5 py-2.5 rounded-full transition flex items-center gap-2">
@@ -58,126 +75,155 @@
 
   <!-- Hero Section -->
   <section class="pt-36 pb-20 px-6 text-center relative overflow-hidden">
-    <div class="max-w-3xl mx-auto">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-orange-500/10 text-orange-400 border border-orange-500/20 mb-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-orange-500/10 text-orange-500 border border-orange-500/20 mb-8">
         <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
         Available Across Karnataka • Shot on Latest iPhone
       </div>
       
-      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4">
-        RAW • REAL • <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">CINEMATIC</span>
+      <!-- One-line Attractive Typography -->
+      <h1 class="tagline-font text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-widest text-zinc-900 dark:text-white mb-6 whitespace-nowrap">
+        <span>RAW</span>
+        <span class="text-orange-500 mx-2 sm:mx-3">•</span>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-500">REAL</span>
+        <span class="text-orange-500 mx-2 sm:mx-3">•</span>
+        <span>CINEMATIC</span>
       </h1>
       
-      <p class="text-zinc-400 text-base md:text-lg mb-8 max-w-xl mx-auto">
-        Turning moments into cinematic memories. High-grade visual storytelling, rapid reel delivery, and commercial-level color grading by <span class="text-white font-medium">Skanda Suresh</span>.
+      <p class="text-zinc-600 dark:text-zinc-400 text-base md:text-lg mb-8 max-w-xl mx-auto">
+        Turning moments into cinematic memories. High-grade visual storytelling, rapid reel delivery, and commercial-level color grading by <span class="font-semibold text-zinc-900 dark:text-white">Skanda Suresh</span>.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#work" class="w-full sm:w-auto px-7 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-black font-bold transition neon-glow">
-          Watch Portfolio
+        <a href="#work" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-black font-bold transition neon-glow">
+          Explore Portfolio
         </a>
-        <a href="https://instagram.com/rawfusion.production?rpxt=cGNydDVuODBzYnV4" target="_blank" class="w-full sm:w-auto px-7 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 font-semibold text-white transition flex items-center justify-center gap-2">
-          <i data-lucide="instagram" class="w-4 h-4 text-orange-400"></i> Studio Instagram
+        <a href="https://instagram.com/rawfusion.production?rpxt=cGNydDVuODBzYnV4" target="_blank" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-zinc-200 dark:bg-zinc-900 hover:bg-zinc-300 dark:hover:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 font-semibold text-zinc-900 dark:text-white transition flex items-center justify-center gap-2">
+          <i data-lucide="instagram" class="w-4 h-4 text-orange-500"></i> Studio Instagram
         </a>
       </div>
 
-      <!-- Highlights Counter -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-10 border-t border-zinc-800/80 text-center">
+      <!-- Highlights Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-10 border-t border-zinc-200 dark:border-zinc-800 text-center">
         <div>
-          <div class="text-2xl font-bold text-white">5+ Years</div>
-          <div class="text-xs text-zinc-400">Production Experience</div>
+          <div class="text-2xl font-bold text-zinc-900 dark:text-white">5+ Years</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400">Production Experience</div>
         </div>
         <div>
-          <div class="text-2xl font-bold text-white">iPhone 4K</div>
-          <div class="text-xs text-zinc-400">Latest Apple Workflow</div>
+          <div class="text-2xl font-bold text-zinc-900 dark:text-white">iPhone 4K</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400">Latest Apple Rig</div>
         </div>
         <div>
-          <div class="text-2xl font-bold text-white">Karnataka</div>
-          <div class="text-xs text-zinc-400">Statewide Availability</div>
+          <div class="text-2xl font-bold text-zinc-900 dark:text-white">Karnataka</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400">Statewide Shoots</div>
         </div>
         <div>
-          <div class="text-2xl font-bold text-white">Cloud Delivery</div>
-          <div class="text-xs text-zinc-400">Raw Media via Google Drive</div>
+          <div class="text-2xl font-bold text-zinc-900 dark:text-white">Google Drive</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400">Raw Media Access</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Skanda Suresh Section -->
-  <section id="about" class="py-16 px-6 max-w-5xl mx-auto">
-    <div class="bg-zinc-900/60 rounded-3xl p-8 md:p-12 card-border flex flex-col md:flex-row items-center gap-10">
-      <div class="w-48 h-64 md:w-56 md:h-72 rounded-2xl overflow-hidden border border-zinc-700 flex-shrink-0 bg-zinc-950">
+  <!-- About Section -->
+  <section id="about" class="py-12 px-6 max-w-5xl mx-auto">
+    <div class="bg-white dark:bg-zinc-900/60 rounded-3xl p-8 md:p-12 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row items-center gap-10">
+      <div class="w-48 h-64 md:w-56 md:h-72 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-700 flex-shrink-0 bg-zinc-100 dark:bg-zinc-950">
         <img src="skanda.png" alt="Skanda Suresh" class="w-full h-full object-cover object-center" />
       </div>
       <div>
-        <span class="text-xs font-bold uppercase tracking-widest text-orange-400">Founder & Visual Director</span>
-        <h2 class="text-3xl font-extrabold mt-1 mb-4 text-white">Skanda Suresh</h2>
-        <p class="text-zinc-400 text-sm leading-relaxed mb-6">
-          With over 5 years behind the lens, I direct, shoot, and edit high-impact visuals tailored for automotive brands, wedding couples, and modern fashion creators. Every frame is crafted with intentional composition, beat-synced rhythm, and deep color mastery.
+        <span class="text-xs font-bold uppercase tracking-widest text-orange-500">Founder & Visual Director</span>
+        <h2 class="text-3xl font-extrabold mt-1 mb-4 text-zinc-900 dark:text-white">Skanda Suresh</h2>
+        <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6">
+          With over 5 years of camera and editing experience, I craft high-retention visual stories tailored for automotive lovers, commercial brands, and milestone occasions. Every shot is directed with dynamic pacing, synchronized beats, and customized color grading.
         </p>
         <div class="flex flex-wrap items-center gap-4 text-xs">
-          <a href="https://instagram.com/skandasuresh_?srtk=dnYydWhmZ2pxdWM4&utm_source=qr" target="_blank" class="px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white flex items-center gap-2 transition">
-            <i data-lucide="user" class="w-3.5 h-3.5 text-orange-400"></i> Personal @skandasuresh_
+          <a href="https://instagram.com/skandasuresh_?srtk=dnYydWhmZ2pxdWM4&utm_source=qr" target="_blank" class="px-4 py-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white flex items-center gap-2 transition">
+            <i data-lucide="user" class="w-3.5 h-3.5 text-orange-500"></i> Personal @skandasuresh_
           </a>
-          <a href="https://instagram.com/rawfusion.production?rpxt=cGNydDVuODBzYnV4" target="_blank" class="px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white flex items-center gap-2 transition">
-            <i data-lucide="camera" class="w-3.5 h-3.5 text-orange-400"></i> Studio @rawfusion.production
+          <a href="https://instagram.com/rawfusion.production?rpxt=cGNydDVuODBzYnV4" target="_blank" class="px-4 py-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white flex items-center gap-2 transition">
+            <i data-lucide="camera" class="w-3.5 h-3.5 text-orange-500"></i> Studio @rawfusion.production
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Video Showcase (Vertical 9:16 Reels Frame) -->
+  <!-- Portfolio Section (Automotive, Client Works, Photoshoots, Car Delivery) -->
   <section id="work" class="py-20 px-6 max-w-6xl mx-auto">
     <div class="text-center mb-14">
-      <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Cinematic Reels</h2>
-      <p class="text-zinc-400 text-sm">Real projects shot on the latest iPhone with professional grading.</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-3">Portfolio Highlights</h2>
+      <p class="text-zinc-600 dark:text-zinc-400 text-sm">Specialized cinematic reels organized by category.</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- 4 Category Vertical Reels Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       
-      <!-- Video 1: Automotive / Bike -->
-      <div class="bg-zinc-900 card-border rounded-2xl overflow-hidden hover:border-orange-500/50 transition">
+      <!-- 01. Automotive -->
+      <div class="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden hover:border-orange-500/50 transition flex flex-col">
         <div class="aspect-[9/16] bg-black relative">
           <video class="w-full h-full object-cover" controls playsinline preload="metadata">
-            <source src="bike-edit.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            <source src="automotive-reel.mp4" type="video/mp4">
+            Your browser does not support video playback.
           </video>
         </div>
-        <div class="p-4">
-          <div class="text-xs font-semibold text-orange-400 uppercase tracking-wider mb-1">Automotive & Machine</div>
-          <h3 class="font-bold text-base text-white">Jawa 42 Bobber Cinematic</h3>
-          <p class="text-xs text-zinc-400 mt-1">Punchy framing, sound design & precision color grade.</p>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <span class="text-[11px] font-bold text-orange-500 uppercase tracking-wider">Category 01</span>
+            <h3 class="font-bold text-base text-zinc-900 dark:text-white mt-1">Automotive Shoots</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Superbikes & high-end machines shot with speed ramping, rolling b-rolls, and aggressive beat sync.</p>
+          </div>
         </div>
       </div>
 
-      <!-- Video 2: Adventure / Scuba -->
-      <div class="bg-zinc-900 card-border rounded-2xl overflow-hidden hover:border-orange-500/50 transition">
+      <!-- 02. Car Delivery Shoots -->
+      <div class="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden hover:border-orange-500/50 transition flex flex-col">
         <div class="aspect-[9/16] bg-black relative">
           <video class="w-full h-full object-cover" controls playsinline preload="metadata">
-            <source src="scuba-edit.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            <source src="car-delivery.mp4" type="video/mp4">
+            Your browser does not support video playback.
           </video>
         </div>
-        <div class="p-4">
-          <div class="text-xs font-semibold text-orange-400 uppercase tracking-wider mb-1">Commercial & Adventure</div>
-          <h3 class="font-bold text-base text-white">Scuba & Rafting Campaign</h3>
-          <p class="text-xs text-zinc-400 mt-1">High-tempo pacing, kinetic typography & underwater capture.</p>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <span class="text-[11px] font-bold text-orange-500 uppercase tracking-wider">Category 02</span>
+            <h3 class="font-bold text-base text-zinc-900 dark:text-white mt-1">Car Delivery Shoots</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Showroom unboxings, ribbon cutting, vehicle details, and personalized handover reels.</p>
+          </div>
         </div>
       </div>
 
-      <!-- Video 3: Event / Beach Party -->
-      <div class="bg-zinc-900 card-border rounded-2xl overflow-hidden hover:border-orange-500/50 transition">
+      <!-- 03. Client Works -->
+      <div class="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden hover:border-orange-500/50 transition flex flex-col">
         <div class="aspect-[9/16] bg-black relative">
           <video class="w-full h-full object-cover" controls playsinline preload="metadata">
-            <source src="event-edit.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            <source src="client-work.mp4" type="video/mp4">
+            Your browser does not support video playback.
           </video>
         </div>
-        <div class="p-4">
-          <div class="text-xs font-semibold text-orange-400 uppercase tracking-wider mb-1">Night Events & Parties</div>
-          <h3 class="font-bold text-base text-white">Beach Nightlife Reel</h3>
-          <p class="text-xs text-zinc-400 mt-1">Low-light iPhone stabilization, rhythm cuts & raw atmosphere.</p>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <span class="text-[11px] font-bold text-orange-500 uppercase tracking-wider">Category 03</span>
+            <h3 class="font-bold text-base text-zinc-900 dark:text-white mt-1">Client Commercials</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Travel events, brand promotional promos, and high-energy campaigns built for retention.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04. Photoshoots & Models -->
+      <div class="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden hover:border-orange-500/50 transition flex flex-col">
+        <div class="aspect-[9/16] bg-black relative">
+          <video class="w-full h-full object-cover" controls playsinline preload="metadata">
+            <source src="photoshoot-reel.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+        </div>
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <div>
+            <span class="text-[11px] font-bold text-orange-500 uppercase tracking-wider">Category 04</span>
+            <h3 class="font-bold text-base text-zinc-900 dark:text-white mt-1">Photoshoots & Fashion</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Ethnic wear, modern Western looks, and model portfolios edited to match custom audio references.</p>
+          </div>
         </div>
       </div>
 
@@ -185,50 +231,50 @@
   </section>
 
   <!-- Packages Section -->
-  <section id="packages" class="py-20 px-6 bg-zinc-950/80 border-t border-zinc-900">
+  <section id="packages" class="py-20 px-6 bg-zinc-100 dark:bg-zinc-950/80 border-t border-zinc-200 dark:border-zinc-900 transition-colors">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-3">Shoot & Edit Packages</h2>
-        <p class="text-zinc-400 text-sm">Transparent packages tailored for vehicles, weddings, and fashion.</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-zinc-900 dark:text-white mb-3">Shoot Packages</h2>
+        <p class="text-zinc-600 dark:text-zinc-400 text-sm">Transparent packages designed for cars, weddings, and creators.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Package 1: Car Delivery -->
-        <div class="bg-zinc-900/70 p-8 rounded-2xl card-border flex flex-col justify-between">
+        <div class="bg-white dark:bg-zinc-900/70 p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex flex-col justify-between">
           <div>
-            <div class="text-xs font-bold text-orange-400 uppercase tracking-wider mb-2">Package 01</div>
-            <h3 class="font-bold text-xl text-white mb-2">Car Delivery Shoot</h3>
-            <p class="text-zinc-400 text-xs mb-6">Cinematic shots of the vehicle, delivery moments, and customer handover.</p>
-            <div class="text-3xl font-extrabold text-white mb-6">₹4,000</div>
-            <ul class="text-xs text-zinc-300 space-y-3 mb-8">
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> 1 Customised cinematic reel</li>
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Raw video clips via Google Drive</li>
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Delivery & customer experience coverage</li>
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Professional color grading & editing</li>
+            <div class="text-xs font-bold text-orange-500 uppercase tracking-wider mb-2">Package 01</div>
+            <h3 class="font-bold text-xl text-zinc-900 dark:text-white mb-2">Car Delivery Shoot</h3>
+            <p class="text-zinc-600 dark:text-zinc-400 text-xs mb-6">Complete vehicle delivery coverage and customer handover reel.</p>
+            <div class="text-3xl font-extrabold text-zinc-900 dark:text-white mb-6">₹4,000</div>
+            <ul class="text-xs text-zinc-700 dark:text-zinc-300 space-y-3 mb-8">
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> 1 Professionally edited cinematic reel</li>
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Raw video clips via Google Drive</li>
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Vehicle aesthetics & reveal coverage</li>
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Professional color grading & sound sync</li>
             </ul>
           </div>
-          <button onclick="selectPackage('Car Delivery Cinematic Shoot (₹4,000)')" class="w-full py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs transition">
+          <button onclick="selectPackage('Car Delivery Cinematic Shoot (₹4,000)')" class="w-full py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-800 dark:hover:bg-zinc-700 font-semibold text-xs transition">
             Book Car Shoot
           </button>
         </div>
 
         <!-- Package 2: Wedding (Featured) -->
-        <div class="bg-zinc-900 p-8 rounded-2xl border-2 border-orange-500 relative flex flex-col justify-between neon-glow">
+        <div class="bg-white dark:bg-zinc-900 p-8 rounded-2xl border-2 border-orange-500 relative flex flex-col justify-between neon-glow">
           <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-black text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-            Signature Experience
+            Most Popular
           </span>
           <div>
-            <div class="text-xs font-bold text-orange-400 uppercase tracking-wider mb-2">Package 02</div>
-            <h3 class="font-bold text-xl text-white mb-2">Wedding & Cinematic Films</h3>
-            <p class="text-zinc-400 text-xs mb-6">Full coverage capturing candid emotions and ceremony aesthetics.</p>
-            <div class="text-3xl font-extrabold text-orange-400 mb-6">₹10,000</div>
-            <ul class="text-xs text-zinc-300 space-y-3 mb-8">
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Photo + Video ceremony coverage</li>
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Customised cinematic wedding reel</li>
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Documentary wedding film option</li>
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Edited candid & moment photos</li>
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Full media access via Google Drive</li>
+            <div class="text-xs font-bold text-orange-500 uppercase tracking-wider mb-2">Package 02</div>
+            <h3 class="font-bold text-xl text-zinc-900 dark:text-white mb-2">Wedding & Cinematic Films</h3>
+            <p class="text-zinc-600 dark:text-zinc-400 text-xs mb-6">Candid photography and documentary-style films capturing raw emotions.</p>
+            <div class="text-3xl font-extrabold text-orange-500 mb-6">₹10,000</div>
+            <ul class="text-xs text-zinc-700 dark:text-zinc-300 space-y-3 mb-8">
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Photo + Video ceremony coverage</li>
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Customised cinematic wedding reel</li>
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Documentary wedding film option</li>
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Edited photographs of candid moments</li>
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Raw media shared via Google Drive</li>
             </ul>
           </div>
           <button onclick="selectPackage('Wedding Photography & Cinematic Films (₹10,000)')" class="w-full py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-black font-bold text-xs transition">
@@ -237,20 +283,20 @@
         </div>
 
         <!-- Package 3: Fashion / Portraits -->
-        <div class="bg-zinc-900/70 p-8 rounded-2xl card-border flex flex-col justify-between">
+        <div class="bg-white dark:bg-zinc-900/70 p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 flex flex-col justify-between">
           <div>
-            <div class="text-xs font-bold text-orange-400 uppercase tracking-wider mb-2">Package 03</div>
-            <h3 class="font-bold text-xl text-white mb-2">Fashion & Model Shoots</h3>
-            <p class="text-zinc-400 text-xs mb-6">Ethnic, Western, and portfolio portrait shoots customized to your theme.</p>
-            <div class="text-3xl font-extrabold text-white mb-6">₹5,000</div>
-            <ul class="text-xs text-zinc-300 space-y-3 mb-8">
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Photoshoot + cinematic video coverage</li>
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> 1 Custom reel tailored to your sound & style</li>
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Creative framing & custom color grade</li>
-              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-400 flex-shrink-0"></i> Raw clips provided via Google Drive</li>
+            <div class="text-xs font-bold text-orange-500 uppercase tracking-wider mb-2">Package 03</div>
+            <h3 class="font-bold text-xl text-zinc-900 dark:text-white mb-2">Fashion & Model Shoots</h3>
+            <p class="text-zinc-600 dark:text-zinc-400 text-xs mb-6">Ethnic, Western, and portfolio shoots customized to your aesthetic.</p>
+            <div class="text-3xl font-extrabold text-zinc-900 dark:text-white mb-6">₹5,000</div>
+            <ul class="text-xs text-zinc-700 dark:text-zinc-300 space-y-3 mb-8">
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Photoshoot + cinematic video coverage</li>
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> 1 Custom reel tailored to preferred audio</li>
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Composition & custom color grading</li>
+              <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-500 flex-shrink-0"></i> Raw video clips via Google Drive</li>
             </ul>
           </div>
-          <button onclick="selectPackage('Fashion, Model & Portrait Shoot (₹5,000)')" class="w-full py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs transition">
+          <button onclick="selectPackage('Fashion, Model & Portrait Shoot (₹5,000)')" class="w-full py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-800 dark:hover:bg-zinc-700 font-semibold text-xs transition">
             Book Fashion Shoot
           </button>
         </div>
@@ -258,7 +304,7 @@
       </div>
 
       <!-- Additional Terms Notice -->
-      <div class="mt-12 bg-zinc-900/40 p-6 rounded-xl card-border text-xs text-zinc-400 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="mt-12 bg-white dark:bg-zinc-900/40 p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>• Travel expenses outside base locations will be charged separately as applicable.</div>
         <div>• Delivery timelines and shoot durations are customized and confirmed prior to shoot day.</div>
         <div>• Additional reels, extended photo coverage, and rush deliveries can be arranged at an extra charge.</div>
@@ -269,34 +315,34 @@
 
   <!-- Interactive WhatsApp Booking Section -->
   <section id="contact" class="py-20 px-6 max-w-xl mx-auto text-center">
-    <h2 class="text-3xl font-extrabold mb-2">Lock In Your Date</h2>
-    <p class="text-zinc-400 text-sm mb-8">Fill in your shoot details below to immediately trigger an organized WhatsApp enquiry.</p>
+    <h2 class="text-3xl font-extrabold text-zinc-900 dark:text-white mb-2">Book Your Shoot</h2>
+    <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-8">Enter your project details below to initiate a structured inquiry directly on WhatsApp.</p>
 
-    <div class="bg-zinc-900 p-8 rounded-2xl card-border text-left">
+    <div class="bg-white dark:bg-zinc-900 p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 text-left shadow-sm">
       <div class="space-y-4">
         <div>
-          <label class="block text-xs font-semibold text-zinc-400 mb-1">Your Full Name</label>
-          <input type="text" id="clientName" placeholder="e.g. Rahul Sharma" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500" />
+          <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">Your Full Name</label>
+          <input type="text" id="clientName" placeholder="e.g. Rahul Sharma" class="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500 text-zinc-900 dark:text-white" />
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-zinc-400 mb-1">Select Shoot Package</label>
-          <select id="packageSelect" class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500 text-zinc-300">
+          <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">Select Shoot Package</label>
+          <select id="packageSelect" class="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500 text-zinc-700 dark:text-zinc-300">
             <option value="Car Delivery Cinematic Shoot (₹4,000)">01. Car Delivery Cinematic Shoot (₹4,000)</option>
             <option value="Wedding Photography & Cinematic Films (₹10,000)">02. Wedding Photography & Cinematic Films (₹10,000)</option>
             <option value="Fashion, Model & Portrait Shoot (₹5,000)">03. Fashion & Model Videography (₹5,000)</option>
-            <option value="Custom Project / Video Editing">Custom Project / Video Editing Only</option>
+            <option value="Automotive & Custom Video Project">04. Automotive / Custom Video Shoot</option>
           </select>
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-zinc-400 mb-1">Shoot Location (Karnataka / City)</label>
-          <input type="text" id="clientLocation" placeholder="e.g. Bangalore, Mysore, Hassan, etc." class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500" />
+          <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">Shoot Location (Karnataka / City)</label>
+          <input type="text" id="clientLocation" placeholder="e.g. Bangalore, Mysore, Hassan, etc." class="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500 text-zinc-900 dark:text-white" />
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-zinc-400 mb-1">Shoot Date & Specific Notes</label>
-          <textarea id="clientNotes" rows="3" placeholder="Preferred dates, timing, concepts, or references..." class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500"></textarea>
+          <label class="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">Shoot Date & Concept Notes</label>
+          <textarea id="clientNotes" rows="3" placeholder="Target shoot dates, venue, music reference, or concept..." class="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-orange-500 text-zinc-900 dark:text-white"></textarea>
         </div>
 
         <button onclick="dispatchWhatsApp()" class="w-full py-3.5 bg-orange-500 hover:bg-orange-600 text-black font-bold text-sm rounded-xl transition flex items-center justify-center gap-2">
@@ -307,28 +353,60 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-zinc-800/80 py-10 text-center text-xs text-zinc-500 space-y-3">
-    <p class="font-bold text-zinc-400 tracking-wider">RΛWFUSION PRODUCTIONS</p>
+  <footer class="border-t border-zinc-200 dark:border-zinc-800 py-10 text-center text-xs text-zinc-500 space-y-3 transition-colors">
+    <p class="font-bold text-zinc-700 dark:text-zinc-400 tracking-wider">RΛWFUSION PRODUCTIONS</p>
     <p>Turning Moments Into Cinematic Memories • Directed by Skanda Suresh</p>
     <div class="flex justify-center gap-6 pt-2">
-      <a href="https://instagram.com/rawfusion.production?rpxt=cGNydDVuODBzYnV4" target="_blank" class="text-zinc-400 hover:text-orange-400 transition">Studio IG</a>
-      <a href="https://instagram.com/skandasuresh_?srtk=dnYydWhmZ2pxdWM4&utm_source=qr" target="_blank" class="text-zinc-400 hover:text-orange-400 transition">Personal IG</a>
-      <a href="tel:+918088823626" class="text-zinc-400 hover:text-orange-400 transition">+91 80888 23626</a>
+      <a href="https://instagram.com/rawfusion.production?rpxt=cGNydDVuODBzYnV4" target="_blank" class="text-zinc-600 dark:text-zinc-400 hover:text-orange-500 transition">Studio IG</a>
+      <a href="https://instagram.com/skandasuresh_?srtk=dnYydWhmZ2pxdWM4&utm_source=qr" target="_blank" class="text-zinc-600 dark:text-zinc-400 hover:text-orange-500 transition">Personal IG</a>
+      <a href="tel:+918088823626" class="text-zinc-600 dark:text-zinc-400 hover:text-orange-500 transition">+91 80888 23626</a>
     </div>
-    <p class="pt-4 text-zinc-600">© 2026 RΛWFUSION PRODUCTIONS. All rights reserved.</p>
+    <p class="pt-4 text-zinc-400 dark:text-zinc-600">© 2026 RΛWFUSION PRODUCTIONS. All rights reserved.</p>
   </footer>
 
   <script>
-    // Initialize icons
+    // Initialize Icons
     lucide.createIcons();
 
-    // Select package from button
+    // Dark / Light Theme Toggle Functionality
+    function toggleTheme() {
+      const html = document.documentElement;
+      const themeIcon = document.getElementById('themeIcon');
+      
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeIcon.setAttribute('data-lucide', 'moon');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.setAttribute('data-lucide', 'sun');
+      }
+      lucide.createIcons();
+    }
+
+    // Preserve theme preference on page load
+    (function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const html = document.documentElement;
+      const themeIcon = document.getElementById('themeIcon');
+      
+      if (savedTheme === 'light') {
+        html.classList.remove('dark');
+        themeIcon.setAttribute('data-lucide', 'moon');
+      } else {
+        html.classList.add('dark');
+        themeIcon.setAttribute('data-lucide', 'sun');
+      }
+    })();
+
+    // Package Selection Helper
     function selectPackage(name) {
       document.getElementById('packageSelect').value = name;
       document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Direct WhatsApp Message Formatter
+    // WhatsApp Message Dispatcher
     function dispatchWhatsApp() {
       const name = document.getElementById('clientName').value.trim() || 'Client';
       const pkg = document.getElementById('packageSelect').value;
